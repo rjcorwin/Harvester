@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+    </head>
+    <body>
+        <!-- Home -->
+        <div data-role="page" data-theme="a" id="page1">
+            <div data-theme="a" data-role="header">
+                <h1>
+                    Harvester
+                </h1>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div style="width: 288px; height: 100px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+                    <img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px" />
+                </div>
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme="b">
+                        <a href="#page8" data-transition="slide">
+                            Daily Cost
+                        </a>
+                    </li>
+                    <li data-theme="b">
+                        <a href="#page6" data-transition="slide">
+                            Weekly Cost
+                        </a>
+                    </li>
+                    <li data-theme="b">
+                        <a href="#page7" data-transition="slide">
+                            Monthly Cost
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Daily Cost -->
+        <div data-role="page" data-theme="a" id="page8">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    Header
+                </h3>
+                <a data-role="button" data-transition="slide" data-theme="b" href="#page1" class="ui-btn-left">
+                    &lt;
+                </a>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div style="width: 288px; height: 100px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+                    <img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px" />
+                </div>
+            </div>
+        </div>
+        <!-- Weekly Cost -->
+        <div data-role="page" data-theme="a" id="page6">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    Header
+                </h3>
+                <a data-role="button" data-transition="slide" data-theme="b" href="#page1" class="ui-btn-left">
+                    &lt;
+                </a>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div style="width: 288px; height: 100px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+                    <img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px" />
+                </div>
+            </div>
+        </div>
+        <!-- Monthly Cost -->
+        <div data-role="page" data-theme="a" id="page7">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    Header
+                </h3>
+                <a data-role="button" data-transition="slide" data-theme="b" href="#page1" class="ui-btn-left">
+                    &lt;
+                </a>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div style="width: 288px; height: 100px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+                    <img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px" />
+                </div>
+            </div>
+        </div>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>
