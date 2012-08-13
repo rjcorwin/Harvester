@@ -2,8 +2,8 @@
 
 (function($) {
   	$( "#page6" ).live( "pageinit", function(event){
-
-	  	$.getJSON("/harvester/_design/harvester/_view/by_week_monday?group=true", function(data) {
+  		var db = document.URL.split("/")[3] 
+	  	$.getJSON("/" + db + "/_design/harvester/_view/by_week_monday?group=true", function(data) {
 	  		console.log(data)
 	  		var chartDataCost = []
 	  		var chartDataHours = []
