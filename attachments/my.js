@@ -1,22 +1,16 @@
 
 
 (function($) {
-  //$("a[href='#page6']").bind('click', function() {
-  	$( "#page6" ).live( "pageinit", function( event){
+  	$( "#page6" ).live( "pageinit", function(event){
+
 	  	$.getJSON("/harvester/_design/harvester/_view/by_week_monday?group=true", function(data) {
 	  		console.log(data)
 	  		var chartDataCost = []
 	  		var chartDataHours = []
 	  		$.each(data.rows, function(i, row) {
-	  			//$("a[href='#page6'] .result").append(key[0] + "/" + key[1] + "/" +key[2] + ", " + value)
-	  			//$("#page6 .result").append(row.key[0] + "-" + row.key[1] + "-" + row.key[2] + ", " + row.value + "<br>")
-	  			$("#page6 .result").append(row.key + ", " + row.value[0] + "<br>")
 	  			chartDataCost.push([row.key, row.value[0]])
 	  			chartDataHours.push([row.key, row.value[1]])
 	  		})
-
-	  		console.log("chartData:")
-	  		//console.log(chartData)
 
 	  		window.chartWeekly = new Highcharts.StockChart({
 				chart : {
@@ -65,38 +59,15 @@
 						yAxis: 1
 					}
 				]
-			});
+			}) // end of highcharts object
 	  				
-	  	})
-	  	$.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function(data) {
-		// Create the chart
-		/*
-			window.chart = new Highcharts.StockChart({
-				chart : {
-					renderTo : 'container'
-				},
+	  	}) // end of getJSON
+	}) // end of pageinit for #page6 
 
-				rangeSelector : {
-					selected : 1
-				},
 
-				title : {
-					text : 'AAPL Stock Price'
-				},
-				
-				series : [{
-					name : 'AAPL',
-					data : data,
-					tooltip: {
-						valueDecimals: 2
-					}
-				}]
-			});
-		*/
-		});
-  	}) // end of pageinit for #page6 
-  //})
-
+/*
+ * Below is stuff Codiqa threw in here.  Not so sure it's needed.
+ */
 
   $.widget('mobile.tabbar', $.mobile.navbar, {
     _create: function() {
