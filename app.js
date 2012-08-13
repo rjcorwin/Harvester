@@ -3,7 +3,7 @@
   ;
 
 ddoc = 
-  { _id:'_design/app'
+  { _id:'_design/harvester'
   , rewrites : 
     [ {from:"/", to:'app.html'}
     , {from:"/api", to:'../../'}
@@ -29,6 +29,7 @@ ddoc.views = {
     },
     reduce: "_sum" 
   },
+  // _design/harvester/_view/by_week_monday?group=true
   by_week_monday: {
     map: function(doc) {
       if(doc.Date && doc.Cost) {
@@ -41,7 +42,8 @@ ddoc.views = {
         // Grabbing Start/End Dates
         var StartDate = new Date(today.setDate(date));
         var EndDate = new Date(today.setDate(date + 6));
-        emit([StartDate.getFullYear(), StartDate.getMonth()+1, StartDate.getDate()], parseFloat(doc.Cost) )
+        //emit([StartDate.getFullYear(), StartDate.getMonth()+1, StartDate.getDate()], parseFloat(doc.Cost) )
+        emit(StartDate.getTime(), parseFloat(doc.Cost) )
       }
     },
     reduce: "_sum" 

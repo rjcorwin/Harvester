@@ -1,4 +1,83 @@
+
+
 (function($) {
+  //$("a[href='#page6']").bind('click', function() {
+  	$( "#page6" ).live( "pageinit", function( event){
+	  	$.getJSON("/harvester/_design/harvester/_view/by_week_monday?group=true", function(data) {
+	  		console.log(data)
+	  		var chartData = []
+	  		$.each(data.rows, function(i, row) {
+	  			//$("a[href='#page6'] .result").append(key[0] + "/" + key[1] + "/" +key[2] + ", " + value)
+	  			//$("#page6 .result").append(row.key[0] + "-" + row.key[1] + "-" + row.key[2] + ", " + row.value + "<br>")
+	  			$("#page6 .result").append(row.key + ", " + row.value + "<br>")
+	  			chartData.push([row.key, row.value])
+	  		})
+
+	  		console.log("chartData:")
+	  		console.log(chartData)
+	  		var testData = [
+				/* Aug 2005 */
+				[1123804800000,46.10],
+				[1124064000000,47.68],
+				[1124150400000,46.25],
+				[1124236800000,47.15],
+				[1124323200000,46.30],
+				[1124409600000,45.83],
+				]
+	  		
+	  		window.chartWeekly = new Highcharts.StockChart({
+				chart : {
+					renderTo : 'chartWeekly'
+				},
+
+				rangeSelector : {
+					selected : 1
+				},
+
+				title : {
+					text : ''
+				},
+				
+				series : [{
+					name : 'Cost',
+					data : chartData,
+					tooltip: {
+						valueDecimals: 2
+					}
+				}]
+			});
+	  				
+	  	})
+	  	$.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function(data) {
+		// Create the chart
+		/*
+			window.chart = new Highcharts.StockChart({
+				chart : {
+					renderTo : 'container'
+				},
+
+				rangeSelector : {
+					selected : 1
+				},
+
+				title : {
+					text : 'AAPL Stock Price'
+				},
+				
+				series : [{
+					name : 'AAPL',
+					data : data,
+					tooltip: {
+						valueDecimals: 2
+					}
+				}]
+			});
+		*/
+		});
+  	}) // end of pageinit for #page6 
+  //})
+
+
   $.widget('mobile.tabbar', $.mobile.navbar, {
     _create: function() {
       // Set the theme before we call the prototype, which will 
