@@ -30,7 +30,23 @@
 				title : {
 					text : ''
 				},
-				
+
+				yAxis: [{
+	                title: {
+	                    text: 'OHLC'
+	                },
+	                height: 200,
+	                lineWidth: 2
+	            }, {
+	                title: {
+	                    text: 'Volume'
+	                },
+	                top: 300,
+	                height: 100,
+	                offset: 0,
+	                lineWidth: 2
+	            }],
+
 				series : [
 					{
 						name : 'Cost',
@@ -44,7 +60,8 @@
 						data : chartDataHours,
 						tooltip: {
 							valueDecimals: 2
-						}
+						},
+						yAxis: 1
 					}
 				]
 			});
