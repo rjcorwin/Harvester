@@ -5,26 +5,19 @@
   	$( "#page6" ).live( "pageinit", function( event){
 	  	$.getJSON("/harvester/_design/harvester/_view/by_week_monday?group=true", function(data) {
 	  		console.log(data)
-	  		var chartData = []
+	  		var chartDataCost = []
+	  		var chartDataHours = []
 	  		$.each(data.rows, function(i, row) {
 	  			//$("a[href='#page6'] .result").append(key[0] + "/" + key[1] + "/" +key[2] + ", " + value)
 	  			//$("#page6 .result").append(row.key[0] + "-" + row.key[1] + "-" + row.key[2] + ", " + row.value + "<br>")
-	  			$("#page6 .result").append(row.key + ", " + row.value + "<br>")
-	  			chartData.push([row.key, row.value])
+	  			$("#page6 .result").append(row.key + ", " + row.value[0] + "<br>")
+	  			chartDataCost.push([row.key, row.value[0]])
+	  			chartDataHours.push([row.key, row.value[1]])
 	  		})
 
 	  		console.log("chartData:")
-	  		console.log(chartData)
-	  		var testData = [
-				/* Aug 2005 */
-				[1123804800000,46.10],
-				[1124064000000,47.68],
-				[1124150400000,46.25],
-				[1124236800000,47.15],
-				[1124323200000,46.30],
-				[1124409600000,45.83],
-				]
-	  		
+	  		//console.log(chartData)
+
 	  		window.chartWeekly = new Highcharts.StockChart({
 				chart : {
 					renderTo : 'chartWeekly'
@@ -38,13 +31,22 @@
 					text : ''
 				},
 				
-				series : [{
-					name : 'Cost',
-					data : chartData,
-					tooltip: {
-						valueDecimals: 2
+				series : [
+					{
+						name : 'Cost',
+						data : chartDataCost,
+						tooltip: {
+							valueDecimals: 2
+						}
+					},
+					{
+						name : 'Hours',
+						data : chartDataHours,
+						tooltip: {
+							valueDecimals: 2
+						}
 					}
-				}]
+				]
 			});
 	  				
 	  	})

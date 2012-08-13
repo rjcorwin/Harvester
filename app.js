@@ -43,7 +43,7 @@ ddoc.views = {
         var StartDate = new Date(today.setDate(date));
         var EndDate = new Date(today.setDate(date + 6));
         //emit([StartDate.getFullYear(), StartDate.getMonth()+1, StartDate.getDate()], parseFloat(doc.Cost) )
-        emit(StartDate.getTime(), parseFloat(doc.Cost) )
+        emit(StartDate.getTime(), [parseFloat(doc.Cost), parseFloat(doc.Hours)] )
       }
     },
     reduce: "_sum" 
