@@ -33,17 +33,18 @@
 
 				yAxis: [{
 	                title: {
-	                    text: 'OHLC'
+	                    text: 'Cost'
 	                },
-	                height: 200,
+	                //height: 200,
 	                lineWidth: 2
 	            }, {
 	                title: {
-	                    text: 'Volume'
+	                    text: 'Hours'
 	                },
-	                top: 300,
-	                height: 100,
-	                offset: 0,
+	                //top: 300,
+	                opposite: true,
+	                //height: 100,
+	                //offset: 0,
 	                lineWidth: 2
 	            }],
 
